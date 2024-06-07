@@ -1,0 +1,33 @@
+version: '1.2'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: casasolam
+      POSTGRES_PASSWORD: Marisol123
+      POSTGRES_DB: Prueba
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - 8081:80
